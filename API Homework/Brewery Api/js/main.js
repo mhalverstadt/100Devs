@@ -14,26 +14,26 @@ function getFetch(){
         data.forEach(obj => {
           console.log(obj.name)
 
-          for(const property in obj){
-            //Creating an li of Name and adding it to the DOM. Adding class of name
-            let li = document.createElement('li')
-            li.textContent = obj.name
-            document.querySelector('.nameOfBrewery').appendChild(li)
-            li.classList.add('name')
-            //Create a new ul and appending it to the li of name, adding class of website
-            let ul = document.createElement('ul')
-            document.querySelector('.name').appendChild(ul)
-            ul.classList.add('website')
-            //New li
-            let li1 = document.createElement('li')
-            li1.textContent = obj.website_url
-            document.querySelector('.website').appendChild(li1)    
+          //Created an li for the names of the breweries and appended them to a ul
+          let li = document.createElement('li')
+          li.textContent = obj.name
+          document.querySelector('.nameOfBrewery').appendChild(li)
+          li.classList.add('name')
+          //append ul to li
+          let ul = document.createElement('ul')
+          document.querySelector('.name').appendChild(ul)
+          ul.classList.add('info')
+          
+          let span = document.createElement('span')
+          for (let i = 0; i <= data.length; i++){
+            let website = obj[i].website_url
+            span.textContent = website
+            document.querySelector('.info').appendChild(span)
           }
-
-        })
       })
       .catch(err => {
           console.log(`error ${err}`)
-      });
+      })
+  })
 }
 
