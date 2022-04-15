@@ -1,4 +1,7 @@
-//Example fetch using pokemonapi.co
+//This isn't working and I hate it
+
+
+
 document.querySelector('button').addEventListener('click', getFetch)
 
 function getFetch(){
